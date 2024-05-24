@@ -1,0 +1,35 @@
+# OS X
+.DS_Store*
+Icon?
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+.directory
+*~
+
+
+# npm
+node_modules
+*.log
+*.gz
+
+
+# Coveralls
+coverage
+
+# Benchmarking
+benchmarks/graphs
+
+/dist
+
+# Local DB
+/local_db/mongodb/*
+/local_db/sports_db/*
+
+!local_db/mongodb/README.md
+!local_db/sports_db/README.md

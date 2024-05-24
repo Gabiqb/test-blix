@@ -1,0 +1,84 @@
+// ECMA Script guidelines:
+// https://tc39.es/ecma262/multipage/ecmascript-language-lexical-grammar.html
+
+{
+    "env": {
+        "browser": true,
+        // "es2021": true
+        "es6": true
+    },
+    "extends": [
+        "airbnb-base",
+        "plugin:prettier/recommended",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/eslint-recommended"
+    ],
+    "plugins": ["prettier", "@typescript-eslint"],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "settings": {
+        "import/parsers": {
+            "@typescript-eslint/parser": [".js", ".ts"]
+        },
+        "import/resolver": {
+            // use <root>/tsconfig.json
+            "node": {
+                "extensions": [".js", ".ts"]
+            },
+            // use an array
+            "typescript": {
+                "alwaysTryTypes": true // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+            }
+
+            // use an array of glob patterns
+        }
+    },
+    "rules": {
+        "prettier/prettier": ["error", { "endOfLine": "auto" }],
+
+        // Use winston logger
+        "no-console": ["warn"],
+
+        // Allow continue statements in for loops
+        "no-continue": ["off"],
+        "default-case": ["warn"],
+        "no-nested-ternary": "off",
+        "no-param-reassign": ["warn", { "props": false }],
+        "no-unused-vars": ["warn", { "args": "none" }],
+        "prefer-destructuring": "off",
+        "no-new": "off",
+        "no-await-in-loop": ["warn"],
+        "import/no-cycle": ["warn"],
+
+        "no-irregular-whitespace": [
+            "error",
+            {
+                "skipComments": true
+            }
+        ],
+
+        // Not working properly for the mongood context on pre save
+        "func-names": ["off"],
+
+        // Shadowing fix for enums
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": "warn",
+
+        // TODO: cp - use a statement that checks if windows or unix https://stackoverflow.com/questions/37826449/expected-linebreaks-to-be-lf-but-found-crlf-linebreak-style
+        "linebreak-style": ["error", "unix"],
+        "no-multiple-empty-lines": ["error"],
+        "no-underscore-dangle": ["error", { "allow": ["_id", "__filename", "__dirname"] }],
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/no-empty-interface": "off",
+        "class-methods-use-this": "off",
+        "consistent-return": "off",
+        "no-restricted-syntax": ["error", "BinaryExpression[operator='in']"],
+        "import/prefer-default-export": ["warn"],
+        "import/extensions": ["off"]
+    }
+}
